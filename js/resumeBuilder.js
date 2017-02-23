@@ -42,11 +42,9 @@ bio.display = function() {
             $("#skills").append(formattedSkills);
         }
     }
+};
 
-}
-;
 
-bio.display();
 /******************************************WORK******************************************************/
 
 var work = {
@@ -93,10 +91,9 @@ work.display = function() {
         });
     }
 
-}
-;
+};
 
-work.display();
+
 
 /*******************************************EDUCATION******************************************************/
 
@@ -104,31 +101,33 @@ var education = {
     "schools": [{
         "name": "Penn State University",
         "location": "State College, PA, US",
-        "degreeDates": "2004 - 2008",
-        "major": "B.A. in New Media",
+        "degree": "B.A.",
+        "dates": "2004 - 2008",
+        "majors": ["New Media"],
         "url": "https://sova.psu.edu/concentration-area/new-media"
     }, {
         "name": "Long Island University (Brooklyn Campus)",
         "location": "Brooklyn, NY, US",
-        "degreeDates": "2009 - 2011",
-        "major": "M.A. in Media Arts",
+        "degree": "B.A.",
+        "dates": "2009 - 2011",
+        "majors": ["in Media Arts"],
         "url": "http://www.liu.edu/Brooklyn/Academics/~/link.aspx?_id=2EAFA941A1024583BF6EC2BAE98A0CDE&_z=z"
     }],
 
     "onlineCourses": [{
         "title": "Responsive Web Design Fundamentals",
         "school": "Udacity",
-        "dates": 2017,
+        "dates": "2017",
         "url": "https://classroom.udacity.com/nanodegrees/nd001/syllabus"
     }, {
         "title": "JavaScript Fundamentals",
         "school": "Udacity",
-        "dates": 2017,
+        "dates": "2017",
         "url": "https://classroom.udacity.com/nanodegrees/nd001/syllabus"
     }, {
         "title": "Intro to jQuery",
         "school": "Udacity",
-        "dates": 2017,
+        "dates": "2017",
         "url": "https://classroom.udacity.com/nanodegrees/nd001/syllabus"
     }]
 };
@@ -141,8 +140,8 @@ education.display = function() {
         $("#education").append(HTMLschoolStart);
         education.schools.forEach(function(element, index, array) {
             var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[index].name);
-            var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[index].major);
-            var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[index].degreeDates);
+            var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[index].majors);
+            var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[index].dates);
             var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[index].location);
             var formattedSchoolUrl = HTMLschoolUrl.replace("%data%", education.schools[index].url);
 
@@ -168,11 +167,9 @@ education.display = function() {
 
         });
     }
+};
 
-}
-;
 
-education.display();
 
 /******************************************PROJECTS******************************************************/
 
@@ -216,17 +213,21 @@ projects.display = function() {
                 projects.projects[index].images.forEach(function(element, image, array) {
                     var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[index].images[image]);
                     $(".project-entry:last").append(formattedImage);
-                });
-                //end images loop
-            }
+                  });
+              }
         });
-        //end of project array loop
-
     }
-}
+};
 
-projects.display();
+
 
 /************************************************************************/
 //This is for google map
 $("#mapDiv").append(googleMap);
+
+
+/**********************************************************************/
+bio.display();
+work.display();
+education.display();
+projects.display();
