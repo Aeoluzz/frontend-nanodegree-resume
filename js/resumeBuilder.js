@@ -108,9 +108,9 @@ var education = {
     }, {
         "name": "Long Island University (Brooklyn Campus)",
         "location": "Brooklyn, NY, US",
-        "degree": "B.A.",
+        "degree": "M.A.",
         "dates": "2009 - 2011",
-        "majors": ["in Media Arts"],
+        "majors": ["Media Arts"],
         "url": "http://www.liu.edu/Brooklyn/Academics/~/link.aspx?_id=2EAFA941A1024583BF6EC2BAE98A0CDE&_z=z"
     }],
 
@@ -139,13 +139,15 @@ education.display = function() {
     if (education.schools.length > 0) {
         $("#education").append(HTMLschoolStart);
         education.schools.forEach(function(element, index, array) {
-            var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[index].name);
-            var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[index].majors);
+            var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[index].name)
+            var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[index].degree);
+            var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[index].majors);
             var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[index].dates);
             var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[index].location);
             var formattedSchoolUrl = HTMLschoolUrl.replace("%data%", education.schools[index].url);
 
             $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
+            $('.education-entry:last').append(formattedSchoolMajor);
             $(".education-entry:last").append(formattedSchoolDates);
             $(".education-entry:last").append(formattedSchoolLocation);
             $(".education-entry:last").append(formattedSchoolUrl);
